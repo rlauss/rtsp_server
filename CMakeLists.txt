@@ -1,0 +1,10 @@
+cmake_minimum_required(VERSION 2.8)
+project( rtsp_server )
+find_package(PkgConfig)
+pkg_check_modules(GST REQUIRED gstreamer-1.0)
+pkg_check_modules(GSTRTSP gstreamer-rtsp-server-1.0)
+include_directories( ${GST_INCLUDE_DIRS} )
+add_executable( rtsp_server test-launch )
+target_link_libraries( rtsp_server ${GST_LIBRARIES} ${GSTRTSP_LIBRARIES})
+install(TARGETS rtsp_server DESTINATION /usr/bin)
+
