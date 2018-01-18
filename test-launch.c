@@ -54,6 +54,8 @@ main (int argc, char *argv[])
   factory = gst_rtsp_media_factory_new ();
   gst_rtsp_media_factory_set_launch (factory, argv[1]);
 
+  gst_rtsp_media_factory_set_shared (factory, TRUE);
+
   /* attach the test factory to the /test url */
   gst_rtsp_mount_points_add_factory (mounts, "/test", factory);
 
